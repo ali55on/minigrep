@@ -42,7 +42,13 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     };
 
     for line in results {
-        println!("{}", line);
+        println!(
+            "{}",
+            line.replace(
+                &config.query,
+                format!("\x1b[38;2;192;32;56m{}\x1B[0m", &config.query).as_str()
+            )
+        );
     }
 
     Ok(())
@@ -55,22 +61,28 @@ pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
         .filter(|line| line.contains(query)) // Closure usando 'query' do escopo
         .collect()
 
-    // Iterando com loop 'for'
-    // let mut results = Vec::new();
-    //
-    // for line in contents.lines() {
-    //     if line.contains(query) {
-    //         results.push(line)
-    //     }
-    // }
-    //
-    // results
+    /*
+    Iterando com loop 'for'
+
+    let mut results = Vec::new();
+    
+    for line in contents.lines() {
+        if line.contains(query) {
+            results.push(line.replace(
+                query,
+                format!("\x1b[38;2;192;32;56m{}\x1B[0m", query).as_str()
+            ))
+        }
+    }
+
+    results
+    */
 }
 
 pub fn search_case_insensitive<'a>(
-    query: &str,
-    contents: &'a str,
-) -> Vec<&'a str> {
+    query: &str, contents: &'a str) -> Vec<&'a str> {
+
+    let query = &query.to_lowercase();
 
     contents
         .lines()
