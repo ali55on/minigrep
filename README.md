@@ -1,6 +1,6 @@
 ## minigrep
 
-A grep in Rust. Study project of “the book” - The Rust Programming Language. 
+A grep in Rust. Study project of “the book” - The Rust Programming Language
 
 https://github.com/w-a-gomes/minigrep
 
