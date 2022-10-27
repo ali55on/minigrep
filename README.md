@@ -2,7 +2,7 @@
 
 A grep in Rust. Study project of “the book” - The Rust Programming Language
 
-https://github.com/ali55on/minigrep
+https://github.com/w-a-gomes/minigrep
 
 *Screenshot*
 
